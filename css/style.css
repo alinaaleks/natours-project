@@ -30,55 +30,50 @@ body {
   background-size: cover;
   /* specify 4 corners - start from top left moving clockwise */
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); }
-
-.header__logo-box {
-  position: absolute;
-  top: 4rem;
-  left: 4rem; }
-
-.header__logo {
-  height: 3.5rem; }
+  .header__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem; }
+  .header__logo {
+    height: 3.5rem; }
+  .header__text-box {
+    position: absolute;
+    /* in relation to the parent element */
+    top: 40%;
+    left: 50%;
+    /* in relation to the element itself */
+    transform: translate(-50%, -50%);
+    text-align: center; }
 
 /* animation can be used in multiple places
 .logo:hover {
   animation: moveInRight 1s ease-out;
 } */
-.header__text-box {
-  position: absolute;
-  /* in relation to the parent element */
-  top: 40%;
-  left: 50%;
-  /* in relation to the element itself */
-  transform: translate(-50%, -50%);
-  text-align: center; }
-
 .heading-primary {
   margin-bottom: 6rem;
   color: #fff;
   text-transform: uppercase;
   /* part behind the element  */
   backface-visibility: hidden; }
-
-.heading-primary--main {
-  display: block;
-  font-size: 6rem;
-  font-weight: 400;
-  letter-spacing: 3.5rem;
-  animation-name: moveInLeft;
-  animation-duration: 1s;
-  animation-timing-function: ease-out;
-  /* another properties
-  when it will start play
-  animation-delay: 3s;
-  how many times
-  animation-iteration-count: 3; */ }
-
-.heading-primary--sub {
-  display: block;
-  font-size: 2rem;
-  font-weight: 700;
-  letter-spacing: 1.75rem;
-  animation: moveInRight 1s ease-out; }
+  .heading-primary--main {
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+    /* another properties
+    when it will start play
+    animation-delay: 3s;
+    how many times
+    animation-iteration-count: 3; */ }
+  .heading-primary--sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.75rem;
+    animation: moveInRight 1s ease-out; }
 
 /* ANIMATION */
 @keyframes moveInLeft {
@@ -132,7 +127,12 @@ body {
   /* in relation to the initial state */
   transform: translateY(-0.3rem);
   /* X direction, Y direction, blur, color*/
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); }
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+  /* after pseudo element only when we have btn on the hover state */ }
+  .btn:hover::after {
+    opacity: 0;
+    /* increase the element */
+    transform: scaleX(1.4) scaleY(1.6); }
 
 .btn:active {
   /* in relation to the initial state */
@@ -142,6 +142,9 @@ body {
 .btn--white {
   background-color: #fff;
   color: #777; }
+  .btn--white::after {
+    /* in order for pseudo element also to be white */
+    background-color: #fff; }
 
 .btn::after {
   /* pseudo element which goes behind the button/ this element is treated as a child element (of the button) */
@@ -157,16 +160,6 @@ body {
   border-radius: 10rem;
   content: "";
   transition: all .4s; }
-
-.btn--white::after {
-  /* in order for pseudo element also to be white */
-  background-color: #fff; }
-
-/* after pseudo element only when we have btn on the hover state */
-.btn:hover::after {
-  opacity: 0;
-  /* increase the element */
-  transform: scaleX(1.4) scaleY(1.6); }
 
 .btn--animated {
   /* name, duration, timing-function, delay */
