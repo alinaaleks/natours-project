@@ -1,3 +1,10 @@
+$color-primary: #55c57a;
+$color-primary-light: #7ed56f;
+$color-primary-dark: #28b485;
+
+$color-grey-dark: #777;
+$color-white: #fff;
+
 /* in order to do each browser look the same way (basic RESET) */
 *,
 *::after,
@@ -5,44 +12,55 @@
   /* in defauld box-sizing does not get inherited */
   box-sizing: inherit;
   padding: 0;
-  margin: 0; }
+  margin: 0;
+}
 
 html {
   /* now 1 REM = 10px (FONT RESET). % from the default. Browser's default of user's setting   */
-  font-size: 62.5%; }
+  font-size: 62.5%;
+}
 
 body {
   box-sizing: border-box;
   padding: 3rem;
-  color: #777;
+  color: $color-grey-dark;
   font-family: "Lato", sans-serif;
   /* font-size: 16px; */
   font-weight: 400;
-  line-height: 1.7; }
+  line-height: 1.7;
+}
 
 .header {
   position: relative;
   height: 95vh;
   background-position: top;
   /* first one goes on top */
-  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
+  background-image: linear-gradient(
+    to right bottom, 
+    rgba($color-primary-light, 0.8), 
+    rgba($color-primary-dark, 0.8)), 
+    url(../img/hero.jpg);
   /* whatever the width or the element it will always try to fit to it */
   background-size: cover;
   /* specify 4 corners - start from top left moving clockwise */
-  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); }
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+}
 
 .header__logo-box {
   position: absolute;
   top: 4rem;
-  left: 4rem; }
+  left: 4rem;
+}
 
 .header__logo {
-  height: 3.5rem; }
+  height: 3.5rem;
+}
 
 /* animation can be used in multiple places
 .logo:hover {
   animation: moveInRight 1s ease-out;
 } */
+
 .header__text-box {
   position: absolute;
   /* in relation to the parent element */
@@ -50,14 +68,16 @@ body {
   left: 50%;
   /* in relation to the element itself */
   transform: translate(-50%, -50%);
-  text-align: center; }
+  text-align: center;
+}
 
 .heading-primary {
   margin-bottom: 6rem;
-  color: #fff;
+  color: $color-white;
   text-transform: uppercase;
   /* part behind the element  */
-  backface-visibility: hidden; }
+  backface-visibility: hidden;
+}
 
 .heading-primary--main {
   display: block;
@@ -71,50 +91,69 @@ body {
   when it will start play
   animation-delay: 3s;
   how many times
-  animation-iteration-count: 3; */ }
+  animation-iteration-count: 3; */
+}
 
 .heading-primary--sub {
   display: block;
   font-size: 2rem;
   font-weight: 700;
   letter-spacing: 1.75rem;
-  animation: moveInRight 1s ease-out; }
+  animation: moveInRight 1s ease-out;
+}
 
 /* ANIMATION */
 @keyframes moveInLeft {
   /* start */
   0% {
     opacity: 0;
-    transform: translateX(-10rem); }
+    transform: translateX(-10rem);
+  }
+
   80% {
-    transform: translateX(1rem); }
-  /* finish */
+    transform: translateX(1rem);
+  }
+
+/* finish */
   100% {
     opacity: 1;
-    transform: translateX(0); } }
+    transform: translateX(0);
+  }
+}
 
 @keyframes moveInRight {
   /* start */
   0% {
     opacity: 0;
-    transform: translateX(10rem); }
+    transform: translateX(10rem);
+  }
+
   /* 60% {
     transform: rotate(180deg);
   } */
+
   80% {
-    transform: translateX(-1rem); }
-  /* finish */
+    transform: translateX(-1rem);
+  }
+
+/* finish */
   100% {
     opacity: 1;
-    transform: translateX(0); } }
+    transform: translateX(0);
+  }
+}
 
 @keyframes moveInBottom {
   0% {
     opacity: 0;
-    transform: translateY(3rem); }
+    transform: translateY(3rem);
+  }
+
   100% {
     opacity: 1;
-    transform: translateY(0); } }
+    transform: translateY(0);
+  }
+}
 
 .btn:link, .btn:visited {
   /* inline blick is treated as text */
@@ -126,22 +165,26 @@ body {
   text-decoration: none;
   font-size: 1.6rem;
   /* change initial state more smoothly */
-  transition: all .2s; }
+  transition: all .2s;
+}
 
 .btn:hover {
   /* in relation to the initial state */
-  transform: translateY(-0.3rem);
+  transform: translateY(-.3rem);
   /* X direction, Y direction, blur, color*/
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); }
+  box-shadow: 0 1rem 2rem rgba(0,0,0,.2);
+}
 
 .btn:active {
   /* in relation to the initial state */
-  transform: translateY(-0.1rem);
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2); }
+  transform: translateY(-.1rem);
+  box-shadow: 0 .5rem 1rem rgba(0,0,0,.2);
+}
 
 .btn--white {
-  background-color: #fff;
-  color: #777; }
+  background-color: $color-white;
+  color: $color-grey-dark;
+}
 
 .btn::after {
   /* pseudo element which goes behind the button/ this element is treated as a child element (of the button) */
@@ -156,20 +199,24 @@ body {
   height: 100%;
   border-radius: 10rem;
   content: "";
-  transition: all .4s; }
+  transition: all .4s;
+}
 
 .btn--white::after {
   /* in order for pseudo element also to be white */
-  background-color: #fff; }
+  background-color: $color-white;
+}
 
 /* after pseudo element only when we have btn on the hover state */
 .btn:hover::after {
   opacity: 0;
   /* increase the element */
-  transform: scaleX(1.4) scaleY(1.6); }
+  transform: scaleX(1.4) scaleY(1.6);
+}
 
 .btn--animated {
-  /* name, duration, timing-function, delay */
+  /* name, duration, timing-function, delay */ 
   animation: moveInBottom .5s ease-out .75s;
   /* automatically applies 0% animation before the animation starts - so the btn will appear on the bottom where animation starts*/
-  animation-fill-mode: backwards; }
+  animation-fill-mode: backwards;
+}
