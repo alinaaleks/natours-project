@@ -1,0 +1,68 @@
+.btn {
+  &:link, &:visited {
+    /* inline blick is treated as text */
+    display: inline-block;
+    position: relative;
+    padding: 1.5rem 4rem;
+    border-radius: 10rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 1.6rem;
+    /* change initial state more smoothly */
+    transition: all .2s;
+  }
+  
+  &:hover {
+    /* in relation to the initial state */
+    transform: translateY(-.3rem);
+    /* X direction, Y direction, blur, color*/
+    box-shadow: 0 1rem 2rem rgba($color-black,.2);
+
+    /* after pseudo element only when we have btn on the hover state */
+    
+    &::after {
+    opacity: 0;
+    /* increase the element */
+    transform: scaleX(1.4) scaleY(1.6);
+  }
+  }
+  
+  &:active {
+    /* in relation to the initial state */
+    transform: translateY(-.1rem);
+    box-shadow: 0 .5rem 1rem rgba($color-black,.2);
+  }
+  
+  &--white {
+    background-color: $color-white;
+    color: $color-grey-dark;
+
+    &::after {
+      /* in order for pseudo element also to be white */
+      background-color: $color-white;
+    }
+  }
+  
+  &::after {
+    /* pseudo element which goes behind the button/ this element is treated as a child element (of the button) */
+    display: inline-block;
+    /* in relation to closer "relative" positioning it can find - and now it should be hidden behind the button */
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* defines the position of element if it's one on top of the other - make it definitely behind*/
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    border-radius: 10rem;
+    content: "";
+    transition: all .4s;
+  }
+  
+  &--animated {
+    /* name, duration, timing-function, delay */ 
+    animation: moveInBottom .5s ease-out .75s;
+    /* automatically applies 0% animation before the animation starts - so the btn will appear on the bottom where animation starts*/
+    animation-fill-mode: backwards;
+  }
+}
