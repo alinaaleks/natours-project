@@ -1,7 +1,6 @@
 .row {
   max-width: $grid-width;
   margin: 0 auto;
-  background-color: pink;
   
   //everything except last-child
   &:not(:last-child) {
@@ -13,7 +12,6 @@
   // select classes start with "col-" if * - it means 'which contains this part' $ - any class which ends with "..."
   [class^="col-"] {
     float: left;
-    background-color: orange;
 
     &:not(:last-child) {
       margin-right: $gutter-horizontal;
