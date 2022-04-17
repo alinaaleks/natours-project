@@ -1,0 +1,24 @@
+.feature-box {
+  text-align: center;
+  padding: 2.5rem;
+  background-color: rgba($color-white, .8);
+  box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
+  border-radius: 3px;
+  // paragraph inherits this font-size
+  font-size: 1.5rem;
+  transition: transform .3s;
+
+  // it is "font-icon", so it is treated as font
+  &__icon {
+    display: inline-block;
+    margin-bottom: .5rem;
+    background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
+    -webkit-background-clip: text;
+    color: transparent;
+    font-size: 6rem;
+  }
+
+  &:hover {
+    transform: translateY(-1.5rem) scale(1.03);
+  }
+}
