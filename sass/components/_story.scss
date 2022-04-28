@@ -1,0 +1,79 @@
+.story {
+  width: 75%;
+  padding: 6rem;
+  // because we transformed element lated moving left by 3 rem
+  padding-left: 9rem;
+  margin: 0 auto;
+  background-color: rgba($color-white, .5);
+  transform: skewX(-12deg);
+
+  // & > * {
+  //   transform: skewX(12deg);
+  // }
+
+  box-shadow: 0 3rem 6rem rgba($color-black, .1);
+  border-radius: 3px;
+  font-size: $default-font-size;
+
+  &__shape {
+    position: relative;
+    float: left;
+    transform: translateX(-3rem) skewX(12deg);
+    // removes bug on hovering
+    overflow: hidden;
+    width: 15rem;
+    height: 15rem;
+    //defines where the content floats around the element. text will be floating if float is defined and dimentions (width and height). circle: radius (in relation to width and height)
+    -webkit-shape-outside: circle(50% at 50% 50%);
+    shape-outside: circle(50% at 50% 50%);
+    // if we want the element to look like this shape we use clip-path
+    -webkit-clip-path: circle(50% at 50% 50%);
+    clip-path: circle(50% at 50% 50%);
+    border-radius: 50%;
+  }
+
+  &__img {
+    // 100% of the parent - 15rem
+    height: 100%;
+    transform: translateX(-4rem) scale(1.4);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transition: all .5s;
+    transition: all .5s;
+  }
+
+  &__caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, 20%);
+    transform: translate(-50%, 20%);
+    text-align: center;
+    color: $color-white;
+    text-transform: uppercase;
+    font-size: 1.7rem;
+    opacity: 0;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transition: all .5s;
+    transition: all .5s;
+  }
+
+  &__text {
+    -webkit-transform: skewX(12deg);
+    transform: skewX(12deg);
+  }
+
+  &:hover &__caption {
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+
+  &:hover &__img {
+    -webkit-transform: translateX(-4rem) scale(1);
+    transform: translateX(-4rem) scale(1);
+    -webkit-filter: blur(3px) brightness(80%);
+    filter: blur(3px) brightness(80%);
+  }
+}
