@@ -10,6 +10,7 @@
     url(../img/hero.jpg);
   /* whatever the width or the element it will always try to fit to it */
   background-size: cover;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
   /* specify 4 corners - start from top left moving clockwise */
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
 
