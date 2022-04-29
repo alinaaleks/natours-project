@@ -1,0 +1,148 @@
+.navigation {
+  &__checkbox {
+    display: none;
+  }
+
+  &__btn {
+    position: fixed;
+    top: 6rem;
+    right: 6rem;
+    z-index: 2000;
+    width: 7rem;
+    height: 7rem;
+    background-color: $color-white;
+    box-shadow: 0 1rem 3rem rgba($color-black, .1);
+    border-radius: 50%;
+    cursor: pointer;
+
+    text-align: center;
+  }
+
+  &__background {
+    // does not change position when we scroll page. also takes element out of the flow and allows to specify position of element
+    position: fixed;
+    top: 6.5rem;
+    right: 6.5rem;
+    // it only works on an element which position is defined
+    z-index: 1000;
+    width: 6rem;
+    height: 6rem;
+    background-image: radial-gradient($color-primary-light, $color-primary-dark);
+    border-radius: 50%;
+    transition: transform .8s cubic-bezier(0.83, 0, 0.17, 1);
+  }
+
+  &__nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1500;
+    height: 100vh;
+    transition: all .8s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+    // hid the navigation
+    opacity: 0;
+    width: 0;
+  }
+
+  &__list {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 100%;
+    list-style: none;
+  }
+
+  &__item {
+    margin: 1rem;
+  }
+
+  &__link {
+    &:link,
+    &:visited {
+      display: inline-block;
+      padding: 1rem 2rem;
+      background-image: linear-gradient(
+       120deg,
+        transparent 0%,
+        transparent 50%,
+        $color-white 50%);
+      background-size: 230%;
+      color: $color-white;
+      text-transform: uppercase;
+      text-decoration: none;
+      font-size: 3rem;
+      font-weight: 300;
+      transition: all .4s;
+
+      span {
+        display: inline-block;
+        margin-right: 1.5rem;
+      }
+    }
+
+    &:hover,
+    &:active {
+      background-position: 100%;
+      color: $color-primary;
+      transform: translateX(1rem);
+    }
+  }
+
+  &__checkbox:checked ~ &__background {
+    // show the navigation background
+    transform: scale(80);
+  }
+
+  &__checkbox:checked ~ &__nav {
+    // show the navigation
+    opacity: 1;
+    width: 100%;
+  }
+
+  // ICON
+  &__icon {
+    position: relative;
+    margin-top: 3.5rem;
+
+    &,
+    &::before,
+    &::after {
+      display: inline-block;
+      width: 3rem;
+      height: 2px;
+      background-color: $color-grey-dark-3;
+    }
+
+    &::before,
+    &::after {
+      position: absolute;
+      left: 0;
+      content: "";
+      transition: all .2s;
+    }
+
+    &::before { top: -.8rem; }
+    &::after { top: .8rem; }
+  }
+
+  &__btn:hover &__icon::before {
+    top: -1rem;
+  }
+  &__btn:hover &__icon::after {
+    top: 1rem;
+  }
+
+  &__checkbox:checked + &__btn &__icon {
+    background-color: transparent;
+  }
+  &__checkbox:checked + &__btn &__icon::before {
+    top: 0;
+    transform: rotate(135deg);
+  }
+  &__checkbox:checked + &__btn &__icon::after {
+    top: 0;
+    transform: rotate(-135deg);
+  }
+}
