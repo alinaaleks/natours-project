@@ -241,6 +241,54 @@
                     <a class="btn-text" href="#">Read all stories &rarr;</a>
                 </div>
             </section>
+
+            <section class="section-book">
+                <div class="row">
+                    <div class="book">
+                        <div class="book__form">
+                            <div class="u-margin-bottom-medium">
+                                <h2 class="heading-secondary">Start booking now!</h2>
+                            </div>
+
+                            <form class="form" action="#">
+                                <div class="form__group">
+                                    <input class="form__input" id="name" type="text" placeholder="Full name" required>
+                                    <label class="form__label" for="name">Full name</label>
+                                </div>
+
+                                <div class="form__group">
+                                    <input class="form__input" id="email" type="email" placeholder="Email address" required>
+                                    <label class="form__label" for="email">Email address</label>
+                                </div>
+
+                                <div class="form__group u-margin-bottom-medium">
+                                    <!-- for inputs with the same name - only one of them can be selected -->
+                                    <div class="form__radio-group">
+                                        <!-- original button in input will be hidden, but since it is linked with the label it still could be selected. We style span as a button instead to look it as we wish -->
+                                        <input class="form__radio-input" id="small" name="size" type="radio">
+                                        <label class="form__radio-label" for="small">
+                                            <span class="form__radio-btn"></span>
+                                            Small tour group
+                                        </label>
+                                    </div>
+                                    <div class="form__radio-group">
+                                        <input class="form__radio-input" id="large" name="size" type="radio">
+                                        <label class="form__radio-label" for="large">
+                                            <span class="form__radio-btn"></span>
+                                            Large tour group
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="form__group">
+                                    <!-- in a form should be button element in order to submit the form (not anchor element) -->
+                                    <button class="btn btn--green">Next step &rarr;</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
             
         </main>
         
