@@ -8,6 +8,10 @@
   font-size: 1.5rem;
   transition: transform .3s;
 
+  @include respond(tab-port) {
+    padding: 2rem;
+  }
+
   // it is "font-icon", so it is treated as font
   &__icon {
     display: inline-block;
@@ -16,6 +20,17 @@
     -webkit-background-clip: text;
     color: transparent;
     font-size: 6rem;
+
+    @include respond(tab-port) {
+      margin-bottom: 0;
+    }
+  }
+
+  &__text {
+
+    @include respond(tab-port) {
+      padding: 1rem;
+    }
   }
 
   &:hover {

@@ -4,10 +4,21 @@
   color: $color-grey-light-1;
   font-size: 1.4rem;
 
+  @include respond(tab-land) {
+    padding: 8rem 0;
+    font-size: 1.3rem;
+  }
+  @include respond(tab-port) {
+    padding: 8rem 0;
+  }
+
   &__logo-box {
     text-align: center;
     margin-bottom: 8rem;
 
+    @include respond(tab-port) {
+      margin-bottom: 6rem;
+    }
   }
 
   &__logo {
@@ -18,8 +29,17 @@
   &__navigation {
     // inline block does not occupy 100% of available width, only as much as content needs
     display: inline-block;
-    padding-top: 2rem;
+    width: 90%;
+    // padding-top: 2rem;
     border-top: 1px solid $color-grey-dark;
+
+    @include respond(tab-land) {
+      padding-left: 2rem;
+    }
+    @include respond(tab-port) {
+      text-align: center;
+      width: 100%;
+    }
   }
   
   &__list {
@@ -58,5 +78,13 @@
     width: 75%;
     padding-top: 2rem;
     border-top: 1px solid $color-grey-dark;
+
+    @include respond(tab-land) {
+      padding: 0 2rem;
+    }
+    @include respond(tab-port) {
+      float: none;
+      width: 100%;
+    }
   }
 }

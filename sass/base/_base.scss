@@ -9,6 +9,25 @@
 }
 
 html {
-  /* defines what 1rem is. now 1 REM = 10px (FONT RESET). % from the default. Browser's default of user's setting   */
+  /* defines what 1rem is. now 1 REM = 10px (FONT RESET). % from the default (10px/16px = 62.5%). Browser's default of user's setting   */
   font-size: 62.5%;
+
+  @include respond(tab-land) { // width < 1200?
+    font-size: 56.25%; //1rem = 9px, 9/16 = 56.25%
+  }
+  @include respond(tab-port) { // width < 900?
+    font-size: 50%; //1rem = 8px, 8/16 = 50%
+  }
+  @include respond(big-desktop) { // width > 1800?
+    font-size: 75%; //1rem = 12px, 12/16 = 75%
+  }
+}
+
+body {
+  box-sizing: border-box;
+  padding: 3rem;
+
+  @include respond(tab-port) {
+    padding: .3rem;
+  }
 }
