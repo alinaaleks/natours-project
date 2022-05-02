@@ -32,13 +32,17 @@
     overflow: hidden;
     width: 15rem;
     height: 15rem;
-    //defines where the content floats around the element. text will be floating if float is defined and dimentions (width and height). circle: radius (in relation to width and height)
-    -webkit-shape-outside: circle(50% at 50% 50%);
-    shape-outside: circle(50% at 50% 50%);
-    // if we want the element to look like this shape we use clip-path
-    -webkit-clip-path: circle(50% at 50% 50%);
-    clip-path: circle(50% at 50% 50%);
     border-radius: 50%;
+    
+    @supports (-webkit-clip-path: polygon(0 0)) or (clip-path: polygon(0 0)) {
+      //defines where the content floats around the element. text will be floating if float is defined and dimentions (width and height). circle: radius (in relation to width and height)
+      -webkit-shape-outside: circle(50% at 50% 50%);
+      shape-outside: circle(50% at 50% 50%);
+      // if we want the element to look like shape-outside -  we use clip-path
+      -webkit-clip-path: circle(50% at 50% 50%);
+      clip-path: circle(50% at 50% 50%);
+      border-radius: none;
+    }
 
     @include respond(phone) {
       transform: translateX(-3rem) skewX(0);

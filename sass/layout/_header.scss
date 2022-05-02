@@ -1,6 +1,6 @@
 .header {
   position: relative;
-  height: 95vh;
+  height: 85vh;
   background-position: top;
   /* first one goes on top */
   background-image: linear-gradient(
@@ -10,13 +10,17 @@
     url(../img/hero-small.jpg);
   /* whatever the width or the element it will always try to fit to it */
   background-size: cover;
-  -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+
+  @supports (-webkit-clip-path: polygon(0 0)) or (clip-path: polygon(0 0)) {
+    height: 95vh;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
   /* specify 4 corners - start from top left moving clockwise */
-  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  }
 
   // dpi = dots per inch
   // So, the large-img is shown when the res is higher then 192dpi and whenever the width is larger than 600px
-  @media (min-resolution: 192dpi) and (min-width: 37.5em), (min-width: 125em) {
+  @media (min-resolution: 192dpi) and (min-width: 37.5em), (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em), (min-width: 125em) {
     background-image: linear-gradient(
       to right bottom, 
       rgba($color-primary-light, 0.8), 

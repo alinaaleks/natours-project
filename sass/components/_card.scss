@@ -20,6 +20,7 @@
     overflow: hidden;
     transition: all .8s ease;
     // hides back part of the card
+    -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
 
     &--front {
@@ -69,7 +70,7 @@
         $color-secondary-dark), 
         url(../img/nat-5.jpg);
 
-        @media (min-resolution: 192dpi) and (min-width: 37.5em), (min-width: 75em) {
+        @media (min-resolution: 192dpi) and (min-width: 37.5em), (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em), (min-width: 75em) {
           background-image: linear-gradient(
             to right bottom, 
             $color-secondary-light, 
@@ -85,7 +86,7 @@
         $color-primary-dark), 
         url(../img/nat-6.jpg);
 
-        @media (min-resolution: 192dpi) and (min-width: 37.5em), (min-width: 75em) {
+        @media (min-resolution: 192dpi) and (min-width: 37.5em), (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em), (min-width: 75em) {
           background-image: linear-gradient(
             to right bottom, 
             $color-primary-light, 
@@ -101,7 +102,7 @@
         $color-tertiary-dark), 
         url(../img/nat-7.jpg);
 
-        @media (min-resolution: 192dpi) and (min-width: 37.5em), (min-width: 75em) {
+        @media (min-resolution: 192dpi) and (min-width: 37.5em), (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em), (min-width: 75em) {
           background-image: linear-gradient(
             to right bottom, 
             $color-tertiary-light, 
