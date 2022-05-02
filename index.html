@@ -62,7 +62,18 @@
                         <a class="btn-text" href="#">Learn more &rarr;</a>
                     </div>
                     <div class="col-1-of-2">
-                    <div class="composition"><img src="img/nat-1-large.jpg"   alt="Photo 1" class="composition__photo composition__photo--p1"><img src="img/nat-2-large.jpg" alt="Photo 2" class="composition__photo composition__photo--p2"><img src="img/nat-3-large.jpg" alt="Photo 3" class="composition__photo composition__photo--p3"></div>
+                    <div class="composition">
+                        <!-- use width descriptor - inform the browser of the width of the img
+                        sizes uses to inform the browser about the approximate width of the img at different vw 
+                    it takes care of resolution switching and density switching-->
+                        <img class="composition__photo composition__photo--p1" srcset="img/nat-1.jpg 300w, img/nat-1-large.jpg 1000w" sizes="(max-width: 56.25em) 20vw, (max-width: 37.5em) 30vw, 300px" src="img/nat-1-large.jpg" alt="Photo 1">
+                        <img class="composition__photo composition__photo--p2" srcset="img/nat-2.jpg 300w, img/nat-2-large.jpg 1000w" sizes="(max-width: 56.25em) 20vw, (max-width: 37.5em) 30vw, 300px" src="img/nat-2-large.jpg" alt="Photo 2">
+                        <img class="composition__photo composition__photo--p3" srcset="img/nat-3.jpg 300w, img/nat-3-large.jpg 1000w" sizes="(max-width: 56.25em) 20vw, (max-width: 37.5em) 30vw, 300px" src="img/nat-3-large.jpg" alt="Photo 3">
+
+                        <!-- <img src="img/nat-1-large.jpg" alt="Photo 1" class="composition__photo composition__photo--p1">
+                        <img src="img/nat-2-large.jpg" alt="Photo 2" class="composition__photo composition__photo--p2">
+                        <img src="img/nat-3-large.jpg" alt="Photo 3" class="composition__photo composition__photo--p3"> -->
+                    </div>
                     </div>
                 </div>
             </section>
@@ -230,7 +241,10 @@
                 <div class="row">
                     <div class="story">
                         <figure class="story__shape">
-                            <img class="story__img" src="img/nat-8.jpg" alt="Person on a tour">
+
+                            <img class="story__img" srcset="img/nat-8.jpg 300w, img/nat-8-large.jpg 1000w" sizes="(max-width: 75em) 25vw, (max-width: 56.25em) 30vw, (max-width: 37.5em) 45vw, 300px" src="img/nat-8-large.jpg" alt="Person on a tour">
+
+                            <!-- <img class="story__img" src="img/nat-8.jpg" alt="Person on a tour"> -->
                             <figcaption class="story__caption">Mary Smith</figcaption>
                         </figure>
                         <div class="story__text">
@@ -245,7 +259,10 @@
                 <div class="row">
                     <div class="story">
                         <figure class="story__shape">
-                            <img class="story__img" src="img/nat-9.jpg" alt="Person on a tour">
+
+                            <img class="story__img" srcset="img/nat-9.jpg 300w, img/nat-9-large.jpg 1000w" sizes="(max-width: 75em) 25vw, (max-width: 56.25em) 30vw, (max-width: 37.5em) 45vw, 300px" src="img/nat-9-large.jpg" alt="Person on a tour">
+
+                            <!-- <img class="story__img" src="img/nat-9.jpg" alt="Person on a tour"> -->
                             <figcaption class="story__caption">Jack Wilson</figcaption>
                         </figure>
                         <div class="story__text">
@@ -314,7 +331,15 @@
 
         <footer class="footer">
             <div class="footer__logo-box">
-                <img class="footer__logo" src="img/logo-green-2x.png" alt="Full logo">
+                <!-- Art direction - different images for different viewport width. picture uses for specifying multiple sources for the img and in source el we can write media query. We can add another source el with another media query 
+                we force the browser to download exact img for specific media query - not to choose img -->
+                <picture class="footer__logo">
+                    <source srcset="img/logo-green-small-1x.png 1x, img/logo-green-small-2x.png 2x," media="(max-width: 37.5em)">
+                    <!-- srcset used for density switching according to the screen - to paste images for high-res and low-res screens (2x and 1x)
+                    we use src also if user's browser doesn't support srcset -->
+                <img srcset="img/logo-green-1x.png 1x, img/logo-green-2x.png 2x" src="img/logo-green-2x.png" alt="Full logo">
+                </picture>
+
             </div>
             <div class="row">
                 <div class="col-1-of-2">
@@ -339,8 +364,14 @@
         <div class="popup" id="popup">
             <div class="popup__content">
                 <div class="popup__left">
-                    <img class="popup__img popup__img--1" src="img/nat-8.jpg" alt="Tour photo">
-                    <img class="popup__img popup__img--2" src="img/nat-9.jpg" alt="Tour photo">
+
+                    <img class="popup__img popup__img--1" srcset="img/nat-8.jpg 300w, img/nat-8-large.jpg 1000w" sizes="(max-width: 75rem) 40vw, (max-width: 56.25rem) 30vw, (max-width: 37.5rem) 40vw, 300px" src="img/nat-8-large.jpg" alt="Tour photo">
+
+                    <!-- <img class="popup__img popup__img--1" src="img/nat-8.jpg" alt="Tour photo"> -->
+
+                    <img class="popup__img popup__img--2" srcset="img/nat-9.jpg 300w, img/nat-9-large.jpg 1000w" sizes="(max-width: 75rem) 40vw, (max-width: 56.25rem) 30vw, (max-width: 37.5rem) 40vw, 300px" src="img/nat-9-large.jpg" alt="Tour photo">
+
+                    <!-- <img class="popup__img popup__img--2" src="img/nat-9.jpg" alt="Tour photo"> -->
                 </div>
 
                 <div class="popup__right">
